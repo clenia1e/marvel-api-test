@@ -12,8 +12,8 @@ const SearchBar = ({ type }) => {
           <input
             className={
               type == "home"
-                ? "container-searchbar"
-                : "container-searchbar--red"
+                ? "container-searchbar--red"
+                : "container-searchbar"
             }
             placeholder="Procure por um heróis"
           ></input>
