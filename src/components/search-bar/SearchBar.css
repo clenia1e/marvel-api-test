@@ -18,6 +18,7 @@
 
 .container-searchbar--red::placeholder {
   color: rgb(246, 129, 132);
+  font-size: 1em;
 }
 
 .container {

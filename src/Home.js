@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import SearchBar from "./components/search-bar/SearchBar";
+import SearchInfo from "./components/search-info/SearchInfo";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <button>
         <Link to={`/character`}> click</Link>
       </button>
-      <Footer />
+      <SearchInfo />
     </>
   );
 };

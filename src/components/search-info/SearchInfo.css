@@ -1,0 +1,44 @@
+.container-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-length {
+  font-size: 1em;
+  color: #bbb;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-buttons {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  color: red;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.button-favorite {
+  color: red;
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.8em;
+}
+
+.order-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.8em;
+}
