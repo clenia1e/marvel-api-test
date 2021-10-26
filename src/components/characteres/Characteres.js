@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Characteres.css";
 import FavoriteButton from "../favorite-button/FavoriteButton";
 
-const Characters = () => {
-  const [characters, setcharacters] = useState([]);
-
-  useEffect(() => {
-    getCharacter();
-  }, []);
-
-  const getCharacter = async () => {
-    const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters?***REMOVED***&ts=1635170467574&`
+const Characters = ({ setPage, page, isloading, characters }) => {
+  if (isloading) {
+    return (
+      <div className="container-loader">
+        {" "}
+        <div className="loader"></div>
+      </div>
     );
-    const json = await res.json();
-    setcharacters(json?.data?.results);
-  };
+  }
   return (
     <>
       <div className="characters">
@@ -32,6 +27,16 @@ const Characters = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="pagination">
+        <button onClick={() => (page == 1 ? 1 : setPage(page - 1))}>
+          &laquo;
+        </button>
+        <button className={page === 1 ? "active" : ""}>{page}</button>
+        <button className={page === 3 ? "active" : ""}>{page + 1}</button>
+        <button className={page === 4 ? "active" : ""}>{page + 2}</button>
+        <button onClick={() => setPage(page + 1)}>&raquo;</button>
       </div>
     </>
   );

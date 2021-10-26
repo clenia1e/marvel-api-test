@@ -2,7 +2,7 @@ import React from "react";
 import "./SearchInfo.css";
 import ToggleButton from "../toggle-button/ToggleButton";
 
-const SearchInfo = () => {
+const SearchInfo = ({ isAsc, setIsAsc }) => {
   return (
     <>
       <div className="container-info">
@@ -17,7 +17,7 @@ const SearchInfo = () => {
             />
             Ordenar por nome - A/Z
           </div>
-          <ToggleButton isActive={false} />
+          <ToggleButton isActive={isAsc} handleClick={() => setIsAsc(!isAsc)} />
 
           <div className="favorite-button">
             <button className="button-favorite">

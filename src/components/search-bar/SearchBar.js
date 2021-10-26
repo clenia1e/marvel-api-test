@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-const SearchBar = ({ type }) => {
+const SearchBar = ({ type, getCharacter }) => {
   return (
     <>
       <div className="container-search">
@@ -16,6 +16,7 @@ const SearchBar = ({ type }) => {
                 : "container-searchbar"
             }
             placeholder="Procure por um heróis"
+            onChange={(e) => getCharacter(e.target.value)}
           ></input>
         </div>
       </div>
