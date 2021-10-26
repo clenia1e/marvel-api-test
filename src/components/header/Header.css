@@ -1,0 +1,32 @@
+.container-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+
+.main-text {
+  text-align: center;
+  color: rgb(43, 43, 43);
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.secundary-text {
+  font-size: 0.8em;
+  color: rgb(140, 140, 140);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header-root {
+  margin-bottom: 40px;
+}
