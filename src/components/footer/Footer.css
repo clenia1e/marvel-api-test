@@ -1,5 +1,5 @@
-.container-footer {
-  position: absolute;
+.footer {
+  position: static;
   background-color: red;
   height: 50px;
   width: 100%;

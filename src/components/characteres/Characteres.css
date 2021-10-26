@@ -3,14 +3,16 @@
 }
 
 .img-characters {
-  width: 250px;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   background-color: yellowgreen;
   border-bottom-style: solid;
   border-bottom-color: red;
 }
 
 .characters-info {
-  width: 250px;
+  width: 180px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,4 +23,16 @@
 .favorite-button-hero {
   background-color: white;
   border: none;
+}
+
+.characters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.character-row {
+  justify-content: space-between;
+  margin-bottom: 40px;
 }

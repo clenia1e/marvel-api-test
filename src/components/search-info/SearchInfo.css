@@ -3,10 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
 .info-length {
-  font-size: 1em;
+  font-size: 0.9em;
   color: #bbb;
   font-weight: 600;
   display: flex;

@@ -4,7 +4,7 @@ import "./SearchBar.css";
 const SearchBar = ({ type }) => {
   return (
     <>
-      <div className="container">
+      <div className="container-search">
         <div className="container-wrapper">
           <div className="container-icon">
             <img src="ic_busca_menor.svg" alt="ícone de navegacao" />

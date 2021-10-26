@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Header from "./components/header/Header";
 import SearchBar from "./components/search-bar/SearchBar";
 import SearchInfo from "./components/search-info/SearchInfo";
@@ -9,9 +9,9 @@ const Home = () => {
     <>
       <Header className="header-root" />
       <SearchBar type="home" />
-      <button>
+      {/* <button>
         <Link to={`/character`}> click</Link>
-      </button>
+      </button> */}
       <SearchInfo />
       <Characters />
     </>
