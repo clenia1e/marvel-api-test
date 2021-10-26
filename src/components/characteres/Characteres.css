@@ -1,0 +1,24 @@
+.hero-name {
+  font-size: 0.9em;
+}
+
+.img-characters {
+  width: 250px;
+  background-color: yellowgreen;
+  border-bottom-style: solid;
+  border-bottom-color: red;
+}
+
+.characters-info {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.favorite-button-hero {
+  background-color: white;
+  border: none;
+}
