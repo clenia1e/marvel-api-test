@@ -1,0 +1,69 @@
+.container-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  width: 300px;
+}
+
+.hero-name-detail {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: rgb(52, 52, 52);
+}
+
+.hero-resume {
+  font-size: 0.95em;
+  color: rgb(138, 141, 138);
+  width: 250px;
+  margin-top: 0;
+}
+
+.cantainer-hero-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-detail {
+  font-size: 0.75em;
+  font-weight: bold;
+  color: rgb(52, 52, 52);
+}
+
+.last-publication {
+  font-size: 0.8em;
+  color: rgb(52, 52, 52);
+}
+
+.container-last-publication {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.detail-icon {
+  height: 30px;
+}
+
+.detail-icon-movie {
+  height: 22px;
+}
+
+.icon-value {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.value {
+  font-size: 0.8em;
+  font-weight: normal;
+}

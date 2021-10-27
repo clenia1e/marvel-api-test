@@ -15,7 +15,7 @@ const SearchBar = ({ type, getCharacter }) => {
                 ? "container-searchbar--red"
                 : "container-searchbar"
             }
-            placeholder="Procure por um heróis"
+            placeholder="Procure por heróis"
             onChange={(e) => getCharacter(e.target.value)}
           ></input>
         </div>

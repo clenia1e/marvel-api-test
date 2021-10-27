@@ -23,7 +23,7 @@ const Characters = ({ setPage, page, isloading, characters }) => {
             />
             <div className="characters-info">
               <h4 className="hero-name">{character.name}</h4>
-              <FavoriteButton isFavorite={true} />
+              <FavoriteButton isSize={true} isFavorite={true} />
             </div>
           </div>
         ))}

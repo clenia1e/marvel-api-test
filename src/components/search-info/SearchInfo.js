@@ -23,7 +23,7 @@ const SearchInfo = ({ isAsc, setIsAsc }) => {
             <button className="button-favorite">
               <img
                 className="img-favorite"
-                src="favorito_03.svg"
+                src="favorito_01.svg"
                 alt="ícone de navegacao"
               />
               Somente favoritos
