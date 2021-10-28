@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import SearchBar from "./components/search-bar/SearchBar";
 import SearchInfo from "./components/search-info/SearchInfo";
 import Characters from "./components/characteres/Characteres";
+import Footer from "./components/footer/Footer";
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -48,6 +49,7 @@ const Home = () => {
         isloading={isloading}
         characters={characters}
       />
+      <Footer />
     </>
   );
 };

@@ -11,6 +11,26 @@ const Rating = ({ isRating }) => {
           src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
+        <img
+          className="rating"
+          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          alt="ícone de avaliação do herói"
+        />
+        <img
+          className="rating"
+          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          alt="ícone de avaliação do herói"
+        />
+        <img
+          className="rating"
+          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          alt="ícone de avaliação do herói"
+        />
+        <img
+          className="rating"
+          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          alt="ícone de avaliação do herói"
+        />
       </div>
     </>
   );

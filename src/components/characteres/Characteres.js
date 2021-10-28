@@ -1,15 +1,11 @@
 import React from "react";
 import "./Characteres.css";
 import FavoriteButton from "../favorite-button/FavoriteButton";
+import Loader from "../loader/Loader";
 
 const Characters = ({ setPage, page, isloading, characters }) => {
   if (isloading) {
-    return (
-      <div className="container-loader">
-        {" "}
-        <div className="loader"></div>
-      </div>
-    );
+    return <Loader />;
   }
   return (
     <>
