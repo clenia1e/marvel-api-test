@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import "./Character.css";
 import Details from "./components/details/Details";
 import Releases from "./components/releases/Releases";
@@ -9,12 +9,17 @@ import Loader from "./components/loader/Loader";
 
 const Character = () => {
   const location = useLocation();
+  const history = useHistory();
   const [character, setcharacter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getHero();
   }, []);
+
+  const goToCharacterSearch = (name) => {
+    history.push(`/`, { searchName: name });
+  };
 
   const getHero = async () => {
     const res = await fetch(
@@ -38,7 +43,10 @@ const Character = () => {
               alt="logo menor Marvel"
             />
           </Link>
-          <SearchBar className="search-hero" />
+          <SearchBar
+            className="search-hero"
+            getCharacter={goToCharacterSearch}
+          />
         </header>
         <Details setcharacter={setcharacter} character={character} />
 

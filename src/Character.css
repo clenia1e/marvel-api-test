@@ -13,11 +13,6 @@
   padding-left: 50px;
 }
 
-.container-detail {
-  height: 500px;
-  overflow: hidden;
-}
-
 .container-title {
   display: flex;
   flex-direction: row;

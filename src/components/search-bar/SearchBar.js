@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useCallback } from "react";
+import _debounce from "lodash.debounce";
 import "./SearchBar.css";
 
-const SearchBar = ({ type, getCharacter }) => {
+const SearchBar = ({ type, getCharacter, defaultValue }) => {
+  const handleDebounceFn = (inputValue) => {
+    getCharacter(inputValue);
+  };
+  const debounceFn = useCallback(_debounce(handleDebounceFn, 1500), []);
+
+  const handleChange = (e) => {
+    debounceFn(e.target.value);
+  };
   return (
     <>
       <div className="container-search">
@@ -15,8 +24,9 @@ const SearchBar = ({ type, getCharacter }) => {
                 ? "container-searchbar--red"
                 : "container-searchbar"
             }
+            defaultValue={defaultValue}
             placeholder="Procure por heróis"
-            onChange={(e) => getCharacter(e.target.value)}
+            onChange={(e) => handleChange(e)}
           ></input>
         </div>
       </div>

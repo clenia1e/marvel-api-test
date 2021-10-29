@@ -7,11 +7,12 @@ const SearchInfo = ({
   setIsAsc,
   setIsOnlyFavorites,
   isOnlyFavorites,
+  charactersLength,
 }) => {
   return (
     <>
       <div className="container-info">
-        <div className="info-length">Encontrados 20 heróis</div>
+        <div className="info-length">Encontrados {charactersLength} heróis</div>
 
         <div className="info-buttons">
           <div className="order-button">

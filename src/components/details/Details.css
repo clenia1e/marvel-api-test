@@ -73,11 +73,9 @@
 @media only screen and (max-width: 600px) {
   .container-detail {
     flex-direction: column;
-    padding-top: 300px;
-    padding-bottom: 500px;
   }
 
   .container-resume-hero {
-    padding-top: 150px;
+    padding-top: 0;
   }
 }

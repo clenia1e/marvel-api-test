@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import Header from "./components/header/Header";
 import SearchBar from "./components/search-bar/SearchBar";
 import SearchInfo from "./components/search-info/SearchInfo";
@@ -8,7 +9,6 @@ import Footer from "./components/footer/Footer";
 
 const Home = () => {
   const [page, setPage] = useState(1);
-  const [search, setsearch] = useState("");
   const [isloading, setIsloading] = useState(true);
   const [characters, setcharacters] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
@@ -16,6 +16,11 @@ const Home = () => {
   const [isOnlyFavorites, setIsOnlyFavorites] = useState(null);
   const favoritesStorage = localStorage.getItem("favorites") || "[]";
   const currentFavorites = JSON.parse(favoritesStorage);
+  const { state } = useLocation();
+
+  const searchName = state?.searchName;
+
+  const history = useHistory();
 
   const [localFavorites, setLocalFavorites] = useState(currentFavorites);
 
@@ -56,13 +61,15 @@ const Home = () => {
 
   useEffect(() => {
     getCharacter();
-  }, [name, isAsc]);
+    return () => history.replace({});
+  }, [isAsc, searchName, name]);
 
   const getCharacter = async () => {
+    console.log(searchName);
     setIsloading(true);
     const res = await fetch(
       `https://gateway.marvel.com:443/v1/public/characters?***REMOVED***&ts=1635170467574&${
-        name ? `nameStartsWith=${name}` : ""
+        name || searchName ? `nameStartsWith=${name || searchName}` : ""
       }&orderBy=${isAsc ? "" : "-"}name`
     );
     const json = await res.json();
@@ -70,20 +77,29 @@ const Home = () => {
     setIsloading(false);
   };
 
+  const setNameHome = (name) => {
+    setName(name);
+    history.replace({});
+  };
+
   return (
     <>
       <Header className="header-root" />
       <SearchBar
         type="home"
-        setsearch={setsearch}
-        search={search}
+        setName={setNameHome}
+        value={name}
         getCharacter={setName}
+        defaultValue={searchName}
       />
       <SearchInfo
         setIsAsc={setIsAsc}
         isAsc={isAsc}
         isOnlyFavorites={isOnlyFavorites}
         setIsOnlyFavorites={() => setIsOnlyFavorites(!isOnlyFavorites)}
+        charactersLength={
+          isOnlyFavorites ? localFavorites.length : characters.length
+        }
       />
       <Characters
         setPage={setPage}
