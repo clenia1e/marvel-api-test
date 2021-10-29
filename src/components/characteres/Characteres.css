@@ -20,11 +20,6 @@
   gap: 20px;
 }
 
-.favorite-button-hero {
-  background-color: transparent;
-  border: none;
-}
-
 .characters {
   display: flex;
   flex-direction: row;

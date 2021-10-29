@@ -1,3 +1,9 @@
 .favorite-button-detail {
   width: 30px;
 }
+
+.favorite-button-hero {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -4,15 +4,26 @@ import "./Characteres.css";
 import FavoriteButton from "../favorite-button/FavoriteButton";
 import Loader from "../loader/Loader";
 
-const Characters = ({ isloading, characters }) => {
+const Characters = ({
+  isloading,
+  characters,
+  isOnlyFavorites,
+  setCharacterFavorite,
+  isCharacterFavorite,
+  localFavorites,
+}) => {
   const history = useHistory();
+
   if (isloading) {
     return <Loader />;
   }
+
+  const characterList = isOnlyFavorites ? localFavorites : characters;
+
   return (
     <>
       <div className="characters">
-        {characters.map((character) => (
+        {characterList.map((character) => (
           <div key={character.id} className="character-row">
             <div
               role="presentation"
@@ -29,7 +40,11 @@ const Characters = ({ isloading, characters }) => {
             </div>
             <div className="characters-info">
               <h4 className="hero-name">{character.name}</h4>
-              <FavoriteButton isSize={true} isFavorite={true} />
+              <FavoriteButton
+                isSize={true}
+                isFavorite={isCharacterFavorite(character.id)}
+                setFavorite={() => setCharacterFavorite(character)}
+              />
             </div>
           </div>
         ))}

@@ -13,6 +13,46 @@ const Home = () => {
   const [characters, setcharacters] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
   const [name, setName] = useState(null);
+  const [isOnlyFavorites, setIsOnlyFavorites] = useState(null);
+  const favoritesStorage = localStorage.getItem("favorites") || "[]";
+  const currentFavorites = JSON.parse(favoritesStorage);
+
+  const [localFavorites, setLocalFavorites] = useState(currentFavorites);
+
+  const setLocalFavoriteState = (currentList) => {
+    localStorage.setItem("favorites", JSON.stringify(currentList));
+    setLocalFavorites([...currentList]);
+  };
+
+  const setCharacterFavorite = (character) => {
+    if (isCharacterFavorite(character.id)) {
+      const restFavorites = localFavorites.filter(
+        (favorite) => favorite.id !== character.id
+      );
+      setLocalFavoriteState(restFavorites);
+      return;
+    }
+
+    if (localFavorites.length > 4) {
+      alert("somente 5 favoritos podem ser adicionados");
+      return;
+    }
+
+    if (localFavorites.length < 1) {
+      const currentFavorite = [character];
+      setLocalFavoriteState(currentFavorite);
+      return;
+    }
+
+    setLocalFavoriteState([...localFavorites, character]);
+  };
+
+  const isCharacterFavorite = (id) => {
+    if (localFavorites.length > 0) {
+      return localFavorites.find((favorite) => favorite.id === id);
+    }
+    return false;
+  };
 
   useEffect(() => {
     getCharacter();
@@ -39,15 +79,21 @@ const Home = () => {
         search={search}
         getCharacter={setName}
       />
-      {/* <button>
-        <Link to={`/character`}> click</Link>
-      </button> */}
-      <SearchInfo setIsAsc={setIsAsc} isAsc={isAsc} />
+      <SearchInfo
+        setIsAsc={setIsAsc}
+        isAsc={isAsc}
+        isOnlyFavorites={isOnlyFavorites}
+        setIsOnlyFavorites={() => setIsOnlyFavorites(!isOnlyFavorites)}
+      />
       <Characters
         setPage={setPage}
         page={page}
         isloading={isloading}
         characters={characters}
+        isOnlyFavorites={isOnlyFavorites}
+        setCharacterFavorite={setCharacterFavorite}
+        isCharacterFavorite={isCharacterFavorite}
+        localFavorites={localFavorites}
       />
       <Footer />
     </>

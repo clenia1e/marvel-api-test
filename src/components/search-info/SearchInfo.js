@@ -2,7 +2,12 @@ import React from "react";
 import "./SearchInfo.css";
 import ToggleButton from "../toggle-button/ToggleButton";
 
-const SearchInfo = ({ isAsc, setIsAsc }) => {
+const SearchInfo = ({
+  isAsc,
+  setIsAsc,
+  setIsOnlyFavorites,
+  isOnlyFavorites,
+}) => {
   return (
     <>
       <div className="container-info">
@@ -20,13 +25,13 @@ const SearchInfo = ({ isAsc, setIsAsc }) => {
           <ToggleButton isActive={isAsc} handleClick={() => setIsAsc(!isAsc)} />
 
           <div className="favorite-button">
-            <button className="button-favorite">
+            <button className="button-favorite" onClick={setIsOnlyFavorites}>
               <img
                 className="img-favorite"
                 src="favorito_01.svg"
                 alt="ícone de navegacao"
               />
-              Somente favoritos
+              {isOnlyFavorites ? "mostrar todos" : "Somente favoritos"}
             </button>
           </div>
         </div>

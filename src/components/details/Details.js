@@ -1,10 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Details.css";
 
 import FavoriteButton from "../favorite-button/FavoriteButton";
 import Rating from "../rating/Rating";
 
 const Details = ({ character }) => {
+  const favoritesStorage = localStorage.getItem("favorites") || "[]";
+  const currentFavorites = JSON.parse(favoritesStorage);
+
+  const [localFavorites, setLocalFavorites] = useState(currentFavorites);
+
+  const setLocalFavoriteState = (currentList) => {
+    localStorage.setItem("favorites", JSON.stringify(currentList));
+    setLocalFavorites([...currentList]);
+  };
+  const setCharacterFavorite = (character) => {
+    if (isCharacterFavorite(character.id)) {
+      const restFavorites = localFavorites.filter(
+        (favorite) => favorite.id !== character.id
+      );
+      setLocalFavoriteState(restFavorites);
+      return;
+    }
+
+    if (localFavorites.length > 4) {
+      alert("somente 5 favoritos podem ser adicionados");
+      return;
+    }
+
+    if (localFavorites.length < 1) {
+      const currentFavorite = [character];
+      setLocalFavoriteState(currentFavorite);
+      return;
+    }
+
+    setLocalFavoriteState([...localFavorites, character]);
+  };
+
+  const isCharacterFavorite = (id) => {
+    const favorites = localStorage.getItem("favorites");
+    const currentFavorites = JSON.parse(favorites);
+    if (currentFavorites && currentFavorites.length > 0) {
+      return currentFavorites.find((favorite) => favorite.id === id);
+    }
+    return false;
+  };
   return (
     <>
       {/* <div className="container-map-hero">
@@ -13,7 +53,11 @@ const Details = ({ character }) => {
         <div className="container-resume-hero">
           <div className="container-title">
             <h3 className="hero-name-detail"> {character.name}</h3>
-            <FavoriteButton isSize={false} />
+            <FavoriteButton
+              isSize={false}
+              setFavorite={() => setCharacterFavorite(character)}
+              isFavorite={isCharacterFavorite(character.id)}
+            />
           </div>
           <p className="hero-resume"> {character.description}</p>
 

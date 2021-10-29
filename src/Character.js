@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Character.css";
 import Details from "./components/details/Details";
 import Releases from "./components/releases/Releases";
@@ -31,12 +31,13 @@ const Character = () => {
     <>
       <div className="character-page">
         <header className="container-info-hero">
-          <img
-            className="logo-menor"
-            src="/logo_menor.svg"
-            alt="logo menor Marvel"
-          />
-
+          <Link to="/">
+            <img
+              className="logo-menor"
+              src="/logo_menor.svg"
+              alt="logo menor Marvel"
+            />
+          </Link>
           <SearchBar className="search-hero" />
         </header>
         <Details setcharacter={setcharacter} character={character} />
