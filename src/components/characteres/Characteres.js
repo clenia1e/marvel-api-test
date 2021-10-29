@@ -1,9 +1,11 @@
+import { useHistory } from "react-router-dom";
 import React from "react";
 import "./Characteres.css";
 import FavoriteButton from "../favorite-button/FavoriteButton";
 import Loader from "../loader/Loader";
 
-const Characters = ({ setPage, page, isloading, characters }) => {
+const Characters = ({ isloading, characters }) => {
+  const history = useHistory();
   if (isloading) {
     return <Loader />;
   }
@@ -12,27 +14,25 @@ const Characters = ({ setPage, page, isloading, characters }) => {
       <div className="characters">
         {characters.map((character) => (
           <div key={character.id} className="character-row">
-            <img
-              className="img-characters"
-              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-              alt="Imagem do herói"
-            />
+            <div
+              role="presentation"
+              onClick={() =>
+                history.push(`/character/${character.id}`, { id: character.id })
+              }
+              className="character-router"
+            >
+              <img
+                className="img-characters"
+                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                alt="Imagem do herói"
+              />
+            </div>
             <div className="characters-info">
               <h4 className="hero-name">{character.name}</h4>
               <FavoriteButton isSize={true} isFavorite={true} />
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="pagination">
-        <button onClick={() => (page == 1 ? 1 : setPage(page - 1))}>
-          &laquo;
-        </button>
-        <button className={page === 1 ? "active" : ""}>{page}</button>
-        <button className={page === 3 ? "active" : ""}>{page + 1}</button>
-        <button className={page === 4 ? "active" : ""}>{page + 2}</button>
-        <button onClick={() => setPage(page + 1)}>&raquo;</button>
       </div>
     </>
   );

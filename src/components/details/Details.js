@@ -23,7 +23,7 @@ const Details = ({ character }) => {
               <div className="icon-value">
                 <img
                   className="detail-icon"
-                  src="ic_quadrinhos.svg"
+                  src="/ic_quadrinhos.svg"
                   alt="logo menor Marvel"
                 />
                 <h2 className="value">{character?.comics?.available}</h2>
@@ -34,7 +34,7 @@ const Details = ({ character }) => {
               <div className="icon-value">
                 <img
                   className="detail-icon-movie"
-                  src="ic_trailer.svg"
+                  src="/ic_trailer.svg"
                   alt="logo menor Marvel"
                 />
                 <h2 className="value">{character?.series?.available}</h2>

@@ -8,27 +8,27 @@ const Rating = ({ isRating }) => {
         <h3 className="hero-rating">Rating:</h3>
         <img
           className="rating"
-          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          src={isRating ? "/avaliacao_on.svg" : "/avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
         <img
           className="rating"
-          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          src={isRating ? "/avaliacao_on.svg" : "/avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
         <img
           className="rating"
-          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          src={isRating ? "/avaliacao_on.svg" : "/avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
         <img
           className="rating"
-          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          src={isRating ? "/avaliacao_on.svg" : "/avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
         <img
           className="rating"
-          src={isRating ? "avaliacao_on.svg" : "avaliacao_off.svg"}
+          src={isRating ? "/avaliacao_on.svg" : "/avaliacao_off.svg"}
           alt="ícone de avaliação do herói"
         />
       </div>
