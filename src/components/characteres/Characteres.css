@@ -56,3 +56,9 @@
 .pagination button:hover:not(.active) {
   background-color: #ddd;
 }
+
+@media only screen and (max-width: 600px) {
+  .characters {
+    justify-content: space-evenly;
+  }
+}

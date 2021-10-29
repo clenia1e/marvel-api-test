@@ -33,7 +33,7 @@ const Character = () => {
         <header className="container-info-hero">
           <Link to="/">
             <img
-              className="logo-menor"
+              className="logo-small"
               src="/logo_menor.svg"
               alt="logo menor Marvel"
             />

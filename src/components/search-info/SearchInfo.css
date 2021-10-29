@@ -45,3 +45,18 @@
   gap: 10px;
   font-size: 0.8em;
 }
+
+@media only screen and (max-width: 600px) {
+  .container-info {
+    flex-direction: column;
+  }
+
+  .info-buttons {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .info-length {
+    margin-bottom: 20px;
+  }
+}
