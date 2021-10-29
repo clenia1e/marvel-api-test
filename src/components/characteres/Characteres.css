@@ -32,31 +32,6 @@
   margin-bottom: 40px;
 }
 
-.pagination {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.pagination button {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  margin-bottom: 50px;
-}
-
-/* Style the active/current link */
-.pagination button.active {
-  background-color: rgb(255, 30, 30);
-  color: white;
-}
-
-/* Add a grey background color on mouse-over */
-.pagination button:hover:not(.active) {
-  background-color: #ddd;
-}
-
 @media only screen and (max-width: 600px) {
   .characters {
     justify-content: space-evenly;

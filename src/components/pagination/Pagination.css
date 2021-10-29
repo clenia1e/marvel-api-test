@@ -1,0 +1,68 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationItem {
+  background: #fff;
+  border: 2px solid #666;
+  padding: 10px 15px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  position: relative;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.paginationItem span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev,
+.next {
+  background: #fff;
+  border: none;
+  padding: 5px;
+  color: blue;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.paginationItem.active {
+  border: 1px solid #888;
+  color: #888;
+  pointer-events: none;
+}
+
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999;
+}
+
+.pagination button {
+  color: black;
+  float: left;
+  padding: 5px 16px;
+  text-decoration: none;
+  transition: color 0.3s;
+  margin-bottom: 50px;
+  padding: 5px;
+}
+
+/* Style the active/current link */
+.pagination button.active {
+  background-color: rgb(255, 30, 30);
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination button:hover:not(.active) {
+  color: rgb(255, 30, 30);
+}

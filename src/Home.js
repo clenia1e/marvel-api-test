@@ -6,13 +6,15 @@ import SearchBar from "./components/search-bar/SearchBar";
 import SearchInfo from "./components/search-info/SearchInfo";
 import Characters from "./components/characteres/Characteres";
 import Footer from "./components/footer/Footer";
+import Pagination from "./components/pagination/Pagination";
 
 const Home = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [isloading, setIsloading] = useState(true);
   const [characters, setcharacters] = useState([]);
   const [isAsc, setIsAsc] = useState(true);
   const [name, setName] = useState(null);
+  const [total, setTotal] = useState(0);
   const [isOnlyFavorites, setIsOnlyFavorites] = useState(null);
   const favoritesStorage = localStorage.getItem("favorites") || "[]";
   const currentFavorites = JSON.parse(favoritesStorage);
@@ -62,7 +64,7 @@ const Home = () => {
   useEffect(() => {
     getCharacter();
     return () => history.replace({});
-  }, [isAsc, searchName, name]);
+  }, [isAsc, searchName, name, page]);
 
   const getCharacter = async () => {
     console.log(searchName);
@@ -70,15 +72,17 @@ const Home = () => {
     const res = await fetch(
       `https://gateway.marvel.com:443/v1/public/characters?***REMOVED***&ts=1635170467574&${
         name || searchName ? `nameStartsWith=${name || searchName}` : ""
-      }&orderBy=${isAsc ? "" : "-"}name`
+      }&orderBy=${isAsc ? "" : "-"}name&offset=${page ? (page - 1) * 20 : 0}`
     );
     const json = await res.json();
+    setTotal(json?.data?.total);
     setcharacters(json?.data?.results);
     setIsloading(false);
   };
 
   const setNameHome = (name) => {
     setName(name);
+    setPage(0);
     history.replace({});
   };
 
@@ -111,6 +115,14 @@ const Home = () => {
         isCharacterFavorite={isCharacterFavorite}
         localFavorites={localFavorites}
       />
+      {!isOnlyFavorites && (
+        <Pagination
+          dataLimit={20}
+          length={total}
+          pageLimit={3}
+          onPageChange={setPage}
+        />
+      )}
       <Footer />
     </>
   );
