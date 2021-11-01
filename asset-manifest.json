@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/clenia1e-marvel-api/static/css/main.ab619828.chunk.css",
+    "main.js": "/clenia1e-marvel-api/static/js/main.40b99d8c.chunk.js",
+    "main.js.map": "/clenia1e-marvel-api/static/js/main.40b99d8c.chunk.js.map",
+    "runtime-main.js": "/clenia1e-marvel-api/static/js/runtime-main.360fdf33.js",
+    "runtime-main.js.map": "/clenia1e-marvel-api/static/js/runtime-main.360fdf33.js.map",
+    "static/js/2.a28ea95d.chunk.js": "/clenia1e-marvel-api/static/js/2.a28ea95d.chunk.js",
+    "static/js/2.a28ea95d.chunk.js.map": "/clenia1e-marvel-api/static/js/2.a28ea95d.chunk.js.map",
+    "static/js/3.5efbbaac.chunk.js": "/clenia1e-marvel-api/static/js/3.5efbbaac.chunk.js",
+    "static/js/3.5efbbaac.chunk.js.map": "/clenia1e-marvel-api/static/js/3.5efbbaac.chunk.js.map",
+    "index.html": "/clenia1e-marvel-api/index.html",
+    "static/css/main.ab619828.chunk.css.map": "/clenia1e-marvel-api/static/css/main.ab619828.chunk.css.map",
+    "static/js/2.a28ea95d.chunk.js.LICENSE.txt": "/clenia1e-marvel-api/static/js/2.a28ea95d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.360fdf33.js",
+    "static/js/2.a28ea95d.chunk.js",
+    "static/css/main.ab619828.chunk.css",
+    "static/js/main.40b99d8c.chunk.js"
+  ]
+}
