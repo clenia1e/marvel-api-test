@@ -102,8 +102,6 @@ const Details = ({ character }) => {
             alt="hulk"
           />
         </div>
-        {/* </div>
-        ))}{" "} */}
       </div>
     </>
   );

@@ -6,6 +6,7 @@ import Releases from "./components/releases/Releases";
 import SearchBar from "./components/search-bar/SearchBar";
 import Footer from "./components/footer/Footer";
 import Loader from "./components/loader/Loader";
+import fetchCharacter from "./api/fetchCharacter";
 
 const Character = () => {
   const location = useLocation();
@@ -22,11 +23,8 @@ const Character = () => {
   };
 
   const getHero = async () => {
-    const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters/${location?.state?.id}?***REMOVED***&ts=1635170467574`
-    );
-    const json = await res.json();
-    setcharacter(json?.data?.results[0]);
+    const data = await fetchCharacter({ id: location?.state?.id });
+    setcharacter(data?.results[0]);
     setIsLoading(false);
   };
   if (isLoading) {

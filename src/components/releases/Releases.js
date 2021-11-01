@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Releases.css";
 import Loader from "../loader/Loader";
+import fetchComics from "../../api/fetchComics";
 
 const Releases = ({ id }) => {
   const [comics, setcomics] = useState([]);
@@ -24,12 +25,10 @@ const Releases = ({ id }) => {
   }, []);
 
   const getComics = async () => {
-    const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?orderBy=onsaleDate&***REMOVED***&ts=1635170467574`
-    );
-    const json = await res.json();
-    return json?.data?.results;
+    const data = await fetchComics({ id });
+    return data?.results;
   };
+
   const initialItems = comics.filter((comic, index) => index < 10);
 
   if (isLoading) {

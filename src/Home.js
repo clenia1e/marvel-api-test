@@ -7,6 +7,7 @@ import SearchInfo from "./components/search-info/SearchInfo";
 import Characters from "./components/characteres/Characteres";
 import Footer from "./components/footer/Footer";
 import Pagination from "./components/pagination/Pagination";
+import fetchCharacters from "./api/fetchCharacters";
 
 const Home = () => {
   const [page, setPage] = useState(0);
@@ -70,14 +71,9 @@ const Home = () => {
 
   const getCharacter = async () => {
     setIsloading(true);
-    const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters?***REMOVED***&ts=1635170467574&${
-        name || searchName ? `nameStartsWith=${name || searchName}` : ""
-      }&orderBy=${isAsc ? "" : "-"}name&offset=${page ? (page - 1) * 20 : 0}`
-    );
-    const json = await res.json();
-    setTotal(json?.data?.total);
-    setcharacters(json?.data?.results);
+    const data = await fetchCharacters({ name, searchName, isAsc, page });
+    setTotal(data?.total);
+    setcharacters(data?.results);
     setIsloading(false);
   };
 
