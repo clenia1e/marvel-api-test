@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 Antes de iniciar o projeto no ambiente de desenvolvimento é preciso criar uma conta no [site da Marvel](https://developer.marvel.com/) para ter acesso as credenciais necessárias para o consumo da API
 
-Com as credenciais em mãos, criar um arquivo `.env` com os seguinte conteúdo.
+Com as credenciais em mãos, criar um arquivo `.env` com o seguinte conteúdo.
 
 ```
 REACT_APP_API_HASH=[Hash base64 referente a public key + private key + timestamp]
@@ -29,4 +29,12 @@ Roda os testes configurados na aplicação.
 
 ### `yarn build`
 
+para gerar o app em modo produção é necesário um arquivo`.env` com o seguinte conteúdo.
+
+```
+REACT_APP_API_KEY=[Public key]
+```
+
 Gera o modo de produção da aplicação dentro da pasta `build`.
+
+OBS: adicione o host na lista de 'referers' habilitados no [site da Marvel](https://developer.marvel.com/)
