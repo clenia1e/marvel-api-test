@@ -6,6 +6,7 @@ const ToggleButton = ({ isActive, handleClick }) => {
     <>
       <img
         role="presentation"
+        data-testid="toggle-asc"
         onClick={() => handleClick(!isActive)}
         className="img-toggle"
         src={isActive ? "toggle_on.svg" : "toggle_off.svg"}

@@ -10,7 +10,7 @@ import Loader from "./components/loader/Loader";
 const Character = () => {
   const location = useLocation();
   const history = useHistory();
-  const [character, setcharacter] = useState({});
+  const [character, setcharacter] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Character = () => {
 
   const getHero = async () => {
     const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters/${location.state.id}?***REMOVED***&ts=1635170467574`
+      `https://gateway.marvel.com:443/v1/public/characters/${location?.state?.id}?***REMOVED***&ts=1635170467574`
     );
     const json = await res.json();
     setcharacter(json?.data?.results[0]);

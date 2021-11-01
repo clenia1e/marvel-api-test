@@ -19,6 +19,7 @@ const SearchBar = ({ type, getCharacter, defaultValue }) => {
             <img src="/ic_busca_menor.svg" alt="ícone de navegacao" />
           </div>
           <input
+            data-testid="search-input"
             className={
               type == "home"
                 ? "container-searchbar--red"

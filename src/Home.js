@@ -15,9 +15,11 @@ const Home = () => {
   const [isAsc, setIsAsc] = useState(true);
   const [name, setName] = useState(null);
   const [total, setTotal] = useState(0);
+
   const [isOnlyFavorites, setIsOnlyFavorites] = useState(null);
   const favoritesStorage = localStorage.getItem("favorites") || "[]";
   const currentFavorites = JSON.parse(favoritesStorage);
+
   const { state } = useLocation();
 
   const searchName = state?.searchName;
@@ -67,7 +69,6 @@ const Home = () => {
   }, [isAsc, searchName, name, page]);
 
   const getCharacter = async () => {
-    console.log(searchName);
     setIsloading(true);
     const res = await fetch(
       `https://gateway.marvel.com:443/v1/public/characters?***REMOVED***&ts=1635170467574&${

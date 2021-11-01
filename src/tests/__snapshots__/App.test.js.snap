@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders home page 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <div
+      class="header-root container-header"
+    >
+      <div
+        class="container-logo"
+      >
+        <img
+          alt="ícone da Marvel"
+          class="img-logo"
+          src="logo.svg"
+        />
+      </div>
+      <h2
+        class="main-text"
+      >
+        EXPLORE O UNIVERSO
+      </h2>
+      <p
+        class="secundary-text"
+      >
+        Mergulhe no domínio deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!
+      </p>
+    </div>
+    <div
+      class="container-search"
+    >
+      <div
+        class="container-wrapper"
+      >
+        <div
+          class="container-icon"
+        >
+          <img
+            alt="ícone de navegacao"
+            src="/ic_busca_menor.svg"
+          />
+        </div>
+        <input
+          class="container-searchbar--red"
+          data-testid="search-input"
+          placeholder="Procure por heróis"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="container-info"
+    >
+      <div
+        class="info-length"
+      >
+        Encontrados 
+        0
+         heróis
+      </div>
+      <div
+        class="info-buttons"
+      >
+        <div
+          class="order-button"
+        >
+          <img
+            alt="ícone de navegacao"
+            class="img-hero"
+            src="ic_heroi.svg"
+          />
+          Ordenar por nome - A/Z
+        </div>
+        <img
+          alt="ícone de seleção"
+          class="img-toggle"
+          data-testid="toggle-asc"
+          role="presentation"
+          src="toggle_on.svg"
+        />
+        <div
+          class="favorite-button"
+        >
+          <button
+            class="button-favorite"
+            data-testid="toggle-favorite"
+          >
+            <img
+              alt="ícone de navegacao"
+              class="img-favorite"
+              src="favorito_01.svg"
+            />
+            Somente favoritos
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container-loader"
+    >
+       
+      <div
+        class="loader"
+      />
+    </div>
+    <div
+      class="pagination"
+    >
+      <button
+        class="prev disabled"
+      >
+        prev
+      </button>
+      <button
+        class="next "
+        data-testid="pagination-next"
+      >
+        next
+      </button>
+    </div>
+    <div
+      class="footer"
+    />
+  </div>
+</div>
+`;

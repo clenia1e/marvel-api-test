@@ -6,8 +6,8 @@ const Pagination = ({ length, pageLimit, dataLimit, onPageChange }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const goToNextPage = () => {
-    setCurrentPage((page) => page + 1);
-    onPageChange((page) => page + 1);
+    setCurrentPage(currentPage + 1);
+    onPageChange(currentPage + 1);
   };
 
   function goToPreviousPage() {
@@ -41,6 +41,7 @@ const Pagination = ({ length, pageLimit, dataLimit, onPageChange }) => {
         }
         return (
           <button
+            data-testid="pagination-button"
             key={index}
             onClick={changePage}
             className={`paginationItem ${
@@ -54,6 +55,7 @@ const Pagination = ({ length, pageLimit, dataLimit, onPageChange }) => {
 
       <button
         onClick={goToNextPage}
+        data-testid="pagination-next"
         className={`next ${currentPage === pages ? "disabled" : ""}`}
       >
         next

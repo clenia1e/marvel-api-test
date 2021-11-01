@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./Releases.css";
+import Loader from "../loader/Loader";
 
 const Releases = ({ id }) => {
   const [comics, setcomics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getComics();
+    // fix for react-testing-library https://medium.com/rd-shipit/testing-asynchronous-code-with-jest-and-testing-library-react-cfc185d7bd78
+    let mounted = true;
+    const fetchComics = async () => {
+      const results = await getComics();
+      if (mounted) {
+        setcomics(results);
+        setIsLoading(false);
+      }
+    };
+
+    fetchComics();
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const getComics = async () => {
@@ -13,11 +28,15 @@ const Releases = ({ id }) => {
       `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?orderBy=onsaleDate&***REMOVED***&ts=1635170467574`
     );
     const json = await res.json();
-    setcomics(json?.data?.results);
+    return json?.data?.results;
   };
   const initialItems = comics.filter((comic, index) => index < 10);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
-    <div className="container-releases">
+    <div className="container-releases" key={id}>
       <p className="title-release">Últimos lançamentos</p>
       <div className="characters-releases">
         {initialItems.map((comic) => (

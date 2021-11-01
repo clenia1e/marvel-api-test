@@ -26,7 +26,11 @@ const SearchInfo = ({
           <ToggleButton isActive={isAsc} handleClick={() => setIsAsc(!isAsc)} />
 
           <div className="favorite-button">
-            <button className="button-favorite" onClick={setIsOnlyFavorites}>
+            <button
+              className="button-favorite"
+              data-testid="toggle-favorite"
+              onClick={setIsOnlyFavorites}
+            >
               <img
                 className="img-favorite"
                 src="favorito_01.svg"
